@@ -33,13 +33,16 @@ jobs:
       - name: Generate Site
         run: node generate-site.js
 
-      - name: Copy Assets
-        run: cp -r css js public/
+      - name: Prepare artifact
+        run: |
+          cp -r public/* dist/ 2>/dev/null || mkdir -p dist && cp -r public/* dist/
+          cp -r css dist/
+          cp -r js dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public'
+          path: './dist'
 
   deploy:
     environment:
