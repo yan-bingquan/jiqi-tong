@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>济企通 - 济南求职避坑指南</title>
+  <meta name="description" content="济企通是济南企业点评平台，让求职者少踩坑，让好企业被看见">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- 头部 -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <div class="logo-icon">济</div>
+          <div class="logo-text">济企通</div>
+        </a>
+        <nav class="nav">
+          <a href="/" class="active">首页</a>
+          <a href="/companies.html">企业列表</a>
+          <a href="#contribute">投稿</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero区域 -->
+  <section class="hero">
+    <div class="container">
+      <h1>济企通</h1>
+      <p class="subtitle">济南求职避坑指南 | 让求职者少踩坑，让好企业被看见</p>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="搜索企业名称或主营业务...">
+        <button id="search-btn" onclick="performSearch()">搜索</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 统计栏 -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="number">3406+</div>
+          <div class="label">收录企业</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">5000+</div>
+          <div class="label">真实点评</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">100%</div>
+          <div class="label">免费查看</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业列表 -->
+  <section class="section" id="companies-section">
+    <div class="container">
+      <h2 class="section-title">热门企业</h2>
+      <div class="companies-grid" id="companies-grid">
+        <div class="loading">加载中...</div>
+      </div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <!-- 投稿入口 -->
+  <section class="section" id="contribute">
+    <div class="container">
+      <div class="contribute-section">
+        <h3>📝 帮助更多人避坑</h3>
+        <p>你在济南工作过哪些公司？分享你的真实经历，让求职者少走弯路。</p>
+        <a href="https://www.xiaohongshu.com" target="_blank" class="contribute-btn">
+          <span>小红书</span>
+          <span>评论投稿</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>关于济企通</h4>
+          <p>济企通是济南本地企业点评平台，致力于为求职者提供真实、客观的企业评价信息。</p>
+        </div>
+        <div class="footer-section">
+          <h4>快速链接</h4>
+          <a href="/">首页</a>
+          <a href="/companies.html">企业列表</a>
+          <a href="#contribute">投稿入口</a>
+        </div>
+        <div class="footer-section">
+          <h4>免责声明</h4>
+          <p>本站所有内容均来自用户分享，仅供参考。求职前请多方核实。</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 济企通 JiqiTong.com | 济南求职避坑指南</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // 初始化首页
+    document.addEventListener('DOMContentLoaded', initIndexPage);
+  </script>
+</body>
+</html>
