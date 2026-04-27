@@ -28,14 +28,13 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Generate Site
-        run: node generate-site.js
-
-      - name: Prepare artifact
         run: |
-          cp -r public/* dist/ 2>/dev/null || mkdir -p dist && cp -r public/* dist/
+          node generate-site.js
+          mkdir -p dist
+          cp -r public/* dist/ 2>/dev/null || true
           cp -r css dist/
           cp -r js dist/
 
