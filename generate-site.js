@@ -149,7 +149,7 @@ function generateIndexHTML() {
     function performSearch() {
       const q = document.getElementById('search-input').value.trim().toLowerCase();
       if (!q) return;
-      window.location.href = '/companies.html?search=' + encodeURIComponent(q);
+      window.location.href = '${BASE}/companies.html?search=' + encodeURIComponent(q);
     }
     document.getElementById('search-input').addEventListener('keypress', e => {
       if (e.key === 'Enter') performSearch();

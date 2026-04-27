@@ -10,7 +10,7 @@ let currentFilter = 'hot'; // 'hot' or 'rating'
 // 加载数据
 async function loadCompanies() {
   try {
-    const response = await fetch('/source/_data/companies.json');
+    const response = await fetch('/jiqi-tong/source/_data/companies.json');
     allCompanies = await response.json();
     filteredCompanies = [...allCompanies];
     return allCompanies;
@@ -66,7 +66,7 @@ function renderCompanyCard(company) {
   const salaryTag = company.hasSalary ? '<span class="salary-tag">有薪资数据</span>' : '';
   
   return `
-    <a href="/companies/${company.id}.html" class="company-card">
+    <a href="/jiqi-tong/companies/${company.id}.html" class="company-card">
       <div class="card-header">
         <div>
           <div class="company-name">${company.name}</div>
