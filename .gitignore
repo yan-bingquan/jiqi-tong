@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+# public/  # 取消注释，用于GitHub Pages
+.deploy*/
+_multiconfig.yml
