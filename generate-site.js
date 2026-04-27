@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const BASE = '/jiqi-tong';
 const COMPANIES = JSON.parse(fs.readFileSync(path.join(__dirname, 'source/_data/companies.json'), 'utf-8'));
 
 // 确保输出目录存在
@@ -33,20 +34,20 @@ function generateIndexHTML() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>济企通 - 济南求职避坑指南</title>
   <meta name="description" content="济企通是济南企业点评平台，让求职者少踩坑，让好企业被看见">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="${BASE}/css/style.css">
 </head>
 <body>
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <a href="/" class="logo">
+        <a href="${BASE}/" class="logo">
           <div class="logo-icon">济</div>
           <div class="logo-text">济企通</div>
         </a>
         <nav class="nav">
-          <a href="/" class="active">首页</a>
-          <a href="/companies.html">企业列表</a>
-          <a href="/#contribute">投稿</a>
+          <a href="${BASE}/" class="active">首页</a>
+          <a href="${BASE}/companies.html">企业列表</a>
+          <a href="${BASE}/#contribute">投稿</a>
         </nav>
       </div>
     </div>
@@ -87,7 +88,7 @@ function generateIndexHTML() {
       <h2 class="section-title">🔥 热门企业</h2>
       <div class="companies-grid">
         ${COMPANIES.slice(0, 12).map(c => `
-        <a href="/companies/${c.id}.html" class="company-card">
+        <a href="${BASE}/companies/${c.id}.html" class="company-card">
           <div class="company-header">
             <h3 class="company-name">${c.name}</h3>
             <span class="company-posts">${c.posts}条讨论</span>
@@ -101,7 +102,7 @@ function generateIndexHTML() {
         </a>`).join('')}
       </div>
       <div class="more-link">
-        <a href="/companies.html">查看全部 ${COMPANIES.length} 家企业 →</a>
+        <a href="${BASE}/companies.html">查看全部 ${COMPANIES.length} 家企业 →</a>
       </div>
     </div>
   </section>
@@ -128,9 +129,9 @@ function generateIndexHTML() {
         </div>
         <div class="footer-section">
           <h4>快速链接</h4>
-          <a href="/">首页</a>
-          <a href="/companies.html">企业列表</a>
-          <a href="/#contribute">投稿入口</a>
+          <a href="${BASE}/">首页</a>
+          <a href="${BASE}/companies.html">企业列表</a>
+          <a href="${BASE}/#contribute">投稿入口</a>
         </div>
         <div class="footer-section">
           <h4>免责说明</h4>
@@ -143,7 +144,7 @@ function generateIndexHTML() {
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="${BASE}/js/main.js"></script>
   <script>
     function performSearch() {
       const q = document.getElementById('search-input').value.trim().toLowerCase();
@@ -167,20 +168,20 @@ function generateListHTML() {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>企业列表 - 济企通</title>
   <meta name="description" content="济南企业点评列表，查看企业薪资、加班、评价">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="${BASE}/css/style.css">
 </head>
 <body>
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <a href="/" class="logo">
+        <a href="${BASE}/" class="logo">
           <div class="logo-icon">济</div>
           <div class="logo-text">济企通</div>
         </a>
         <nav class="nav">
-          <a href="/">首页</a>
-          <a href="/companies.html" class="active">企业列表</a>
-          <a href="/#contribute">投稿</a>
+          <a href="${BASE}/">首页</a>
+          <a href="${BASE}/companies.html" class="active">企业列表</a>
+          <a href="${BASE}/#contribute">投稿</a>
         </nav>
       </div>
     </div>
@@ -204,7 +205,7 @@ function generateListHTML() {
       </div>
       <div class="companies-grid" id="companies-list">
         ${COMPANIES.map(c => `
-        <a href="/companies/${c.id}.html" class="company-card">
+        <a href="${BASE}/companies/${c.id}.html" class="company-card">
           <div class="company-header">
             <h3 class="company-name">${c.name}</h3>
             <span class="company-posts">${c.posts}条讨论</span>
@@ -228,7 +229,7 @@ function generateListHTML() {
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="${BASE}/js/main.js"></script>
   <script>
     // 简单的客户端筛选
     const allCards = document.querySelectorAll('.company-card');
@@ -279,20 +280,20 @@ function generateDetailHTML(company) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${company.name} - 济企通</title>
   <meta name="description" content="${company.name}怎么样？查看真实评价、薪资、加班情况">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="${BASE}/css/style.css">
 </head>
 <body>
   <header class="header">
     <div class="container">
       <div class="header-content">
-        <a href="/" class="logo">
+        <a href="${BASE}/" class="logo">
           <div class="logo-icon">济</div>
           <div class="logo-text">济企通</div>
         </a>
         <nav class="nav">
-          <a href="/">首页</a>
-          <a href="/companies.html">企业列表</a>
-          <a href="/#contribute">投稿</a>
+          <a href="${BASE}/">首页</a>
+          <a href="${BASE}/companies.html">企业列表</a>
+          <a href="${BASE}/#contribute">投稿</a>
         </nav>
       </div>
     </div>
@@ -300,7 +301,7 @@ function generateDetailHTML(company) {
 
   <section class="page-header">
     <div class="container">
-      <a href="/companies.html" class="back-link">← 返回企业列表</a>
+      <a href="${BASE}/companies.html" class="back-link">← 返回企业列表</a>
       <h1>${company.name}</h1>
       <div class="company-meta">
         ${company.business ? `<span class="meta-item">📍 ${company.business}</span>` : ''}
@@ -379,7 +380,7 @@ function generateDetailHTML(company) {
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="${BASE}/js/main.js"></script>
 </body>
 </html>`;
 }
